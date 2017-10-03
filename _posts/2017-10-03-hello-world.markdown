@@ -5,7 +5,7 @@ date: 2016-02-19
 categories:
   - Ruby
 description:
-image: https://unsplash.it/200/300?image=0
+image: /imagem/stefan-stefancik-257625.jpg
 image-sm: https://unsplash.it/200/300?image=0
 ---
 
