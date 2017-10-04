@@ -19,7 +19,7 @@ profile: Estudante, programador e criativo.
 social:
   github: https://github.com/Nabucodono5or
   twitter:
-  linkedin:  
+  linkedin: https://www.linkedin.com/in/jefferson-abreu-723818ba  
 
 # Build settings
 exclude: ["_screenshots", "Gemfile", "Gemfile.lock", "LICENSE.txt", "README.md"]
