@@ -18,7 +18,6 @@ profile_img: https://unsplash.it/2000/1200?image=20
 profile: Estudante , progrmador e criativo.
 social:
   github:
-  twitter:
 
 # Build settings
 exclude: ["_screenshots", "Gemfile", "Gemfile.lock", "LICENSE.txt", "README.md"]
