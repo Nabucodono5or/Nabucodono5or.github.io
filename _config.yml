@@ -9,7 +9,7 @@ google_analytics:
 title: Nabucodono5or
 description:
 url: ""
-twitter_username: jonathanp220
+twitter_username:
 default_img:
 
 # Profile settings
@@ -19,6 +19,7 @@ profile: Estudante, programador e criativo.
 social:
   github: https://github.com/Nabucodono5or
   twitter:
+  linkedin:  
 
 # Build settings
 exclude: ["_screenshots", "Gemfile", "Gemfile.lock", "LICENSE.txt", "README.md"]
