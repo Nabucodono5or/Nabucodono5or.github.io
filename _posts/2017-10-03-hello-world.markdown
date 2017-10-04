@@ -6,7 +6,7 @@ categories:
   - Ruby
 description:
 image: imagem/stefan-stefancik-257625-min.jpg
-image-sm: /imagem/stefan-stefancik-257625-min.jpg
+image-sm: imagem/stefan-stefancik-257625-min.jpg
 ---
 
 
