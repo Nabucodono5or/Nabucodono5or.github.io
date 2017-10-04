@@ -6,16 +6,16 @@ paginate_path: "/blog/page-:num"
 google_analytics:
 
 # SEO settings
-title: Trophy
+title: Nabucodono5or
 description:
 url: ""
 twitter_username:
 default_img:
 
 # Profile settings
-name:
-profile_img:
-profile:
+name: Jefferson Abreu
+profile_img: https://unsplash.it/2000/1200?image=20
+profile: Estudante , progrmador e criativo.
 social:
   github:
 
