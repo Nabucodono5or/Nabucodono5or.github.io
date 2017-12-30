@@ -18,8 +18,8 @@ profile_img: https://unsplash.it/2000/1200?image=20
 profile: Estudante, programador e criativo.
 social:
   github: https://github.com/Nabucodono5or
-  twitter:
-  linkedin: https://www.linkedin.com/in/jefferson-abreu-723818ba  
+  twitter: https://twitter.com/nabucodono5or
+  linkedin: https://www.linkedin.com/in/jefferson-abreu-723818ba
 
 # Build settings
 exclude: ["_screenshots", "Gemfile", "Gemfile.lock", "LICENSE.txt", "README.md"]
