@@ -9,12 +9,45 @@ image: https://picsum.photos/2000/1200?image=352
 image-sm: https://picsum.photos/500/300?image=352
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi convallis felis fringilla urna eleifend, vel pretium dolor hendrerit. Praesent et eros a arcu ultricies ultrices at sed sem. Nulla in massa volutpat arcu euismod scelerisque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur facilisis est convallis magna tincidunt, eu porta ex facilisis. Suspendisse potenti. Quisque non faucibus urna. Sed vel efficitur dolor. Suspendisse id egestas leo, at sodales enim. Aenean semper eu libero et tincidunt. Fusce consequat, urna vel dictum vulputate, erat elit euismod risus, eu viverra est metus at ante. Ut lobortis sodales metus a tempus. Quisque porttitor viverra metus a auctor. Nullam consectetur ultrices augue in mollis. Ut congue lectus sit amet ex dapibus faucibus.
+#TERMINAL LÍNUX
 
-Aenean diam magna, dapibus ac malesuada non, dapibus nec urna. Donec vitae neque et arcu molestie sollicitudin a nec erat. Maecenas in risus placerat, vulputate mauris tempus, blandit justo. Pellentesque vel risus vel mi porttitor tempor vitae et risus. Nulla in sem vestibulum, ornare erat ut, posuere leo. Suspendisse vel erat malesuada, rutrum nisl vestibulum, semper nibh. In interdum ac libero sit amet auctor. Sed eleifend leo vel metus viverra, quis rhoncus metus imperdiet. Ut lacinia dolor vitae elit dignissim, nec condimentum lectus sollicitudin. Nulla hendrerit tempus nulla, vitae tincidunt dui posuere sed. Integer sollicitudin eget ligula eget semper. Nullam blandit lectus in diam hendrerit, non bibendum turpis pharetra. Morbi congue nibh ut auctor fermentum. Praesent finibus, nisl et facilisis hendrerit, massa sapien accumsan massa, sed tempus lacus orci id sem. Vestibulum blandit metus in eros posuere, in scelerisque eros congue. Vestibulum semper ac est a aliquet.
+Atualmente é bem tranquilo interagir com o Linux sem a total dependência do terminal ou uso do shell, contudo ele ainda continua sendo uma ferramenta essencial principalmente se você quiser realizar ações mais avançadas no Linux. Agora iniciarei um pequeno artigo sobre o shell e o uso dos terminais, mas de forma bem básica.
 
-Aenean fermentum, risus at faucibus aliquet, nisi nunc ultrices erat, quis lobortis quam enim ut nibh. Quisque tincidunt aliquam risus sit amet facilisis. Donec efficitur nec urna in accumsan. Donec finibus euismod neque. Aenean convallis augue dui, aliquam lobortis ligula dictum id. Curabitur congue in dui vel consequat. Vestibulum porta laoreet dolor ut ultricies. Nam id tempor libero.
+Uma coisa que você pode sempre contar em qualquer distribuição Linux é a disponibilidade do shell no sistema.O shell é um interpretador de linguagens. Com ele você pode executar programas e scripts, compilar código, gerenciar o uso do sistema e navegar dentro do próprio sistema. Eu particularmente considero o Shell extremamente poderoso, bem mais do que o uso das simples interfaces gráficas e espero que você também o ache.
+Para realizar diversa ações no shell, você executa comandos, alguns simples, outros um pouco complexo, para realizar diversas ações. Antes de mais nada existem diversos tipos de shell, listarei alguns aqui: o C Shell (csh), o Korn Shell (Ksh), o dash shell que é padrão Ubuntu. E existem outros, O detalhe é que eles mudam pouco de um para outro, pelo menos em referência a comandos. As vezes você terá mais de um instalado no seu computador. O que estou usando é Bash Shell (Bourne Again Shell) que é padrão na distro Fedora que uso.
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus mollis felis vel dui finibus, nec eleifend libero dapibus. Proin at vulputate lacus. Curabitur at orci quis nisi fringilla molestie. Nam laoreet at purus nec facilisis. Sed varius lorem a rhoncus aliquet. In tincidunt condimentum urna consequat ultricies. Curabitur non magna eget ex fringilla ultrices. Quisque ullamcorper sagittis ex, at facilisis odio volutpat eget. Duis hendrerit lacus sed elementum semper. Aliquam viverra pharetra arcu, non tempor ante aliquet a. Aenean tincidunt quis turpis vel elementum.
+Agora que sabemos que existem outros shell, irei descrever como acessamos o shell, e você verá que existem diversas formas, algumas vantajosas para certas situações. Os três modos mais comuns são shell prompt, Terminal Window e Virtual console.
 
-Vivamus accumsan vestibulum scelerisque. Sed laoreet, orci pretium imperdiet tincidunt, mauris ligula semper nisi, blandit bibendum risus justo ut sem. Fusce rutrum metus non lectus laoreet varius. Ut euismod tellus tincidunt augue consectetur, a ornare sapien suscipit. Aenean vitae arcu bibendum, hendrerit diam at, gravida mauris. Fusce ultricies accumsan justo vitae fringilla. Donec consectetur porta ante. Nam egestas mattis tincidunt. Integer a mattis quam, quis bibendum tellus. Sed elementum eleifend magna malesuada mattis.
+##SHEL PROMPT
+Se seu sistema Linux está sem uma interface gráfica ou ela está indisponível por causa de algum problema do sistema, é provável que você veja apenas o prompt de comando depois de se logar. Neste caso você seria induzido a digitar alguns comandos.
+
+Se você é um usuário regular o prompt seria indicado por $. Caso seja o usuário root seria #.	Junto a outros dados do usuário, por exemplo [jake@pine share]$  .Onde jake é nome do usuário, pine o nome do computador e share a localização atual do usuário no sistema de arquivos do tipo /usr/share/ .
+Existem diversas funcionalidades aqui e você pode sempre digitar alguns comandos.
+
+[criar code]
+
+##TERMINAL WINDOW
+Se você usa interface gráfica é bem provável que a maioria de suas interações com o shell sejam através do Terminal window. E dependendo da distribuição tem diversas formas de acessá-lo. Mas as mais comuns é  o clic direito no desktop e escolhendo terminal nas opções, outra é indo no menu ou painel do sistema. Além dessas fique atentos a nomenclaturas. New/novo Terminal, Open/abrir Terminal, Xterm e Shells.
+Basicamente você trabalha aqui como trabalharia no prompt, sendo que exitem outras funcionalidades dependendo do terminal que você possua. Use o comando abaixo para encontrar todos os terminais disponíveis no seu repositório da distro. E uma das coisas mais legais é que você pode instalar outros terminais caso tenha alguma preferência, só note o tipo de interface gráfica que você possui. Lembrando que para instalar via comando você deve ser usuário root.
+
+O Terminal window facilita o acesso ao shell pois você vai precisar apenas acessá-lo em meio a sua área de trabalho como qualquer outra aplicação e é bem provável que você o use mais que qualquer um dos outros modos.
+
+##CONSOLE VIRTUAL
+Sistemas Linux que incluem interfaces gráficas, normalmente possuem múltiplos consoles virtuais, consoles esse providos para possibilitar diversas sessões de  shell em conjunto com a interface gráfica. Eles são inciados ao mesmo tempo em que você inicia sua interface gráfica e para acessá-los basta segurar Ctrl e Alt, selecionando a sessão pelo f1, f2 … até f6, porém exitem certos detalhes aqui. Em algumas distribuições sua sessão atual é f1 que é a primeira sessão  seguida das próximas seis virtuais, e em outros variam (podem serem a quinta sessão ou a sexta), contudo ao pressionar para acessar um console virtual você estará entrando em uma interface formato texto  para a digitação dos comandos (parecido com o prompt) . Quando você terminar digite exit para fechar a sessão atual e então Ctrl + Alt + f1 ( ou f5 ou f6 ), para voltar para a sessão gráfica.
+
+Bom antes de terminar gostaria de demonstrar alguns comando só para não ficar somente na teoria:
+
+Selecione um dos três métodos acima para começar a digitar comandos no Linux:
+(comando cd)
+
+Comando que você pode usar para percorrer o sistema de arquivos de forma relativa ( a partir da localização atual para as subárvores de arquivos) ou completa( um endereço desde a raiz dos arquivos), independente do que for é um modo rápido de acessar diretórios pelo shell.
+
+(comando ls)
+
+Comando para listar os aquivos no diretório atual do Shell, ele vem com algumas opções, como o -l para uma listagem mais completa sobre cada arquivo, como o -a para listar arquivos ocultos.
+
+(comando grep)
+
+Para identificar o seu Shell no sistema, uma forma bem prática de saber o shell que você usa, observe que eu uso seguinte Shell (), identificado pelas últimas palavras. Basicamente o grep acessa o  arquivo /etc/passwd e exibe a linha com o meu nome de usuário.
+
+Todos esse comandos são de acesso a nível regular, ou seja de usuário comum. Futuramente abordarei mai s questões sobre o shell e até mesmo como configurá-lo para efeitos de estética. Por enquanto isso basta, lembre-se de fechar a sessão ou o terminal, ou mesmo deslogar do prompt quando acabar.Até mais.
