@@ -14,7 +14,7 @@ Atualmente é bem tranquilo interagir com o Linux sem a total dependência do te
 Uma coisa que você pode sempre contar em qualquer distribuição Linux é a disponibilidade do shell no sistema.O shell é um interpretador de linguagens. Com ele você pode executar programas e scripts, compilar código, gerenciar o uso do sistema e navegar dentro do próprio sistema.
 
 Eu particularmente considero o Shell extremamente poderoso, bem mais do que o uso das simples interfaces gráficas e espero que você também o ache.
-Para realizar diversa ações no shell, você executa comandos, alguns simples, outros um pouco complexo, para realizar diversas ações.
+Para realizar diversas ações no shell, você executa comandos, alguns simples, outros um pouco complexo.
 
 Antes de mais nada existem diversos tipos de shell, listarei alguns aqui: o _C Shell (csh), o Korn Shell (Ksh), o dash shell que é padrão Ubuntu_. E existem outros, O detalhe é que eles mudam pouco de um para outro, pelo menos em referência a comandos. As vezes você terá mais de um instalado no seu computador. O que estou usando é _Bash Shell (Bourne Again Shell)_ que é padrão na distro Fedora que uso.
 
@@ -26,10 +26,13 @@ Se seu sistema Linux está sem uma interface gráfica ou ela está indisponível
 
 Se você é um usuário regular o prompt seria indicado por **$**. Caso seja o usuário root seria **#**.	Junto a outros dados do usuário, por exemplo `[jake@pine share]$`  .Onde `jake` é nome do usuário, pine o nome do computador e share a localização atual do usuário no sistema de arquivos do tipo `/usr/share/` .
 
+```shell
+
+[jake@pine share]$
+
+```
+
 Existem diversas funcionalidades aqui e você pode sempre digitar alguns comandos.
-
-[criar code]
-
 
 ### TERMINAL WINDOW
 Se você usa interface gráfica é bem provável que a maioria de suas interações com o shell sejam através do _Terminal window_. E dependendo da distribuição tem diversas formas de acessá-lo. Mas as mais comuns é  o clic direito no desktop e escolhendo terminal nas opções, outra é indo no menu ou painel do sistema.
@@ -44,7 +47,7 @@ O Terminal window facilita o acesso ao shell pois você vai precisar apenas aces
 ### CONSOLE VIRTUAL
 Sistemas Linux que incluem interfaces gráficas, normalmente possuem múltiplos consoles virtuais, consoles esse providos para possibilitar diversas sessões de  shell em conjunto com a interface gráfica. Eles são inciados ao mesmo tempo em que você inicia sua interface gráfica e para acessá-los basta segurar _Ctrl_ e _Alt_, selecionando a sessão pelo _f1, f2_ … até _f6_, porém exitem certos detalhes aqui.
 
-Em algumas distribuições sua sessão atual é f1 que é a primeira sessão  seguida das próximas seis virtuais, e em outros variam (podem serem a quinta sessão ou a sexta), contudo ao pressionar para acessar um console virtual você estará entrando em uma interface formato texto  para a digitação dos comandos (parecido com o prompt) . 
+Em algumas distribuições sua sessão atual é f1 que é a primeira sessão  seguida das próximas seis virtuais, e em outros variam (podem serem a quinta sessão ou a sexta), contudo ao pressionar para acessar um console virtual você estará entrando em uma interface formato texto  para a digitação dos comandos (parecido com o prompt) .
 Quando você terminar digite exit para fechar a sessão atual e então `Ctrl + Alt + f1` ( ou _f5_ ou _f6_ ), para voltar para a sessão gráfica.
 
 Bom antes de terminar gostaria de demonstrar alguns comando só para não ficar somente na teoria:
