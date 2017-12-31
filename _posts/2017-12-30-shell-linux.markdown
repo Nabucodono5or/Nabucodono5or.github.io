@@ -41,7 +41,7 @@ Além dessas fique atentos a nomenclaturas. _New/novo Terminal, Open/abrir Termi
 
 Basicamente você trabalha aqui como trabalharia no prompt, sendo que exitem outras funcionalidades dependendo do terminal que você possua. Use o comando abaixo para encontrar todos os terminais disponíveis no seu repositório da distro. E uma das coisas mais legais é que você pode instalar outros terminais caso tenha alguma preferência, só note o tipo de interface gráfica que você possui. Lembrando que para instalar via comando você deve ser usuário _root_.
 
-![terminal](Nabucodono5or.github.io/imagem/terminal_resultado_busca.png)
+![terminal](/imagem/terminal_resultado_busca.png)
 
 O Terminal window facilita o acesso ao shell pois você vai precisar apenas acessá-lo em meio a sua área de trabalho como qualquer outra aplicação e é bem provável que você o use mais que qualquer um dos outros modos.
 
@@ -78,7 +78,6 @@ drwxr-xr-x. 2 jake jake 4096 Dec 30 19:49 Imagens
 
 ```
 
-(comando ls)
 
 Comando para listar os aquivos no diretório atual do Shell, ele vem com algumas opções, como o `-l` para uma listagem mais completa sobre cada arquivo, como o `-a` para listar arquivos ocultos.
 
@@ -89,7 +88,6 @@ jake:x:1000:1000:jake:/home/jake:/bin/bash
 
 ```
 
-(comando grep)
 
 Para identificar o seu Shell no sistema, uma forma bem prática de saber o shell que você usa, observe que eu uso seguinte Shell (), identificado pelas últimas palavras. Basicamente o `grep` acessa o  arquivo **/etc/passwd** e exibe a linha com o meu nome de usuário.
 
