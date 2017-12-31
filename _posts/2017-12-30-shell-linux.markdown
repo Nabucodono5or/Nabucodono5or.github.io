@@ -35,11 +35,13 @@ Se você é um usuário regular o prompt seria indicado por **$**. Caso seja o u
 Existem diversas funcionalidades aqui e você pode sempre digitar alguns comandos.
 
 ### TERMINAL WINDOW
-Se você usa interface gráfica é bem provável que a maioria de suas interações com o shell sejam através do _Terminal window_. E dependendo da distribuição tem diversas formas de acessá-lo. Mas as mais comuns é  o clic direito no desktop e escolhendo terminal nas opções, outra é indo no menu ou painel do sistema.
+Se você usa interface gráfica é bem provável que a maioria de suas interações com o shell sejam através do _Terminal window_. E dependendo da distribuição tem diversas formas de acessá-lo. Mas as mais comuns é  o clic direito na área de trabalho e escolhendo terminal nas opções do menu que surgir, outra é indo no menu ou painel do sistema e percorrê-lo.
 
 Além dessas fique atentos a nomenclaturas. _New/novo Terminal, Open/abrir Terminal, Xterm e Shells_.
 
 Basicamente você trabalha aqui como trabalharia no prompt, sendo que exitem outras funcionalidades dependendo do terminal que você possua. Use o comando abaixo para encontrar todos os terminais disponíveis no seu repositório da distro. E uma das coisas mais legais é que você pode instalar outros terminais caso tenha alguma preferência, só note o tipo de interface gráfica que você possui. Lembrando que para instalar via comando você deve ser usuário _root_.
+
+![terminal](Nabucodono5or.github.io/imagem/terminal_resultado_busca.png)
 
 O Terminal window facilita o acesso ao shell pois você vai precisar apenas acessá-lo em meio a sua área de trabalho como qualquer outra aplicação e é bem provável que você o use mais que qualquer um dos outros modos.
 
@@ -53,13 +55,39 @@ Quando você terminar digite exit para fechar a sessão atual e então `Ctrl + A
 Bom antes de terminar gostaria de demonstrar alguns comando só para não ficar somente na teoria:
 
 Selecione um dos três métodos acima para começar a digitar comandos no Linux:
-(comando cd)
+
+```sh
+
+[jake@pine jake]$ cd Documentos/
+
+```
 
 Comando que você pode usar para percorrer o sistema de arquivos de forma relativa ( _a partir da localização atual para as subárvores de arquivos_) ou completa( um endereço desde a raiz dos arquivos), independente do que for é um modo rápido de acessar diretórios pelo shell.
+
+Aqui uso o cd para entrar no diretório Documentos, sendo que o faço de forma relativa, ou seja eu tenho que estar em um diretŕio acima dele.
+
+
+
+```sh
+
+[jake@pine jake]$ ls -l
+drwxr-xr-x. 2 jake jake 4096 Dec 30 19:49 'Área de trabalho'
+drwxr-xr-x. 7 jake jake 4096 Dec 30 19:49 Documentos
+drwxr-xr-x. 2 jake jake 4096 Dec 30 19:49 Downloads
+drwxr-xr-x. 2 jake jake 4096 Dec 30 19:49 Imagens
+
+```
 
 (comando ls)
 
 Comando para listar os aquivos no diretório atual do Shell, ele vem com algumas opções, como o `-l` para uma listagem mais completa sobre cada arquivo, como o `-a` para listar arquivos ocultos.
+
+```sh
+
+[jake@pine jake]$ grep jake /etc/passwd
+jake:x:1000:1000:jake:/home/jake:/bin/bash
+
+```
 
 (comando grep)
 
