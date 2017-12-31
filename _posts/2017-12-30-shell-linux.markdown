@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bśdico de Shell linux"
+title: "Básico de Shell linux"
 date: 2017-12-30
 categories:
   - linux
