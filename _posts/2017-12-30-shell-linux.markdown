@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shell linux"
+title: "Bśdico de Shell linux"
 date: 2017-12-30
 categories:
   - linux
@@ -40,6 +40,13 @@ Se você usa interface gráfica é bem provável que a maioria de suas interaç�
 Além dessas fique atentos a nomenclaturas. _New/novo Terminal, Open/abrir Terminal, Xterm e Shells_.
 
 Basicamente você trabalha aqui como trabalharia no prompt, sendo que exitem outras funcionalidades dependendo do terminal que você possua. Use o comando abaixo para encontrar todos os terminais disponíveis no seu repositório da distro. E uma das coisas mais legais é que você pode instalar outros terminais caso tenha alguma preferência, só note o tipo de interface gráfica que você possui. Lembrando que para instalar via comando você deve ser usuário _root_.
+
+```sh
+
+[root@pine root]# dnf search *-terminal
+
+```
+
 
 ![terminal](/imagem/terminal_resultado_busca.png)
 
