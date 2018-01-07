@@ -5,7 +5,7 @@ date: 2018-01-07
 categories:
   - linux
 description:
-image: https://source.unsplash.com/OqtafYT5kTw/2000/1200
+image: https://unsplash.com/photos/OqtafYT5kTw
 image-sm: https://source.unsplash.com/OqtafYT5kTw/500/300
 ---
 
