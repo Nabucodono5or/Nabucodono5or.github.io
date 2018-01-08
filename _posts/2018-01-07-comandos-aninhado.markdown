@@ -13,7 +13,7 @@ Uma das coisa mais bacanas e eficientes quer dá para fazer em Linux é conectar
 
 Tudo isso é realizado através dos chamados meta caracteres que seriam os seguintes símbolos ( o pipe \| , os parênteses (  ) , o ampersand & , o ponto e virgula  ;  e os sinais de mais e de menos <  >), que são símbolos que representam significados especiais para o Linux.
 
-Vou exemplificar os diversa situações desses caracteres:
+Vou exemplificar as diversas situações desses caracteres:
 
 {% highlight shell_session %}
   $ cat /etc/passwd | sort | less
