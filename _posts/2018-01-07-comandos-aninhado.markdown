@@ -10,3 +10,12 @@ image-sm: https://source.unsplash.com/user/jdiegoph/5LOhydOtTKU/500x300
 ---
 
 Uma das coisa mais bacanas e eficientes quer dá para fazer em Linux é conectar comandos, ou seja você pode digitar comandos em sequência ou mesmo retirar dados de saída de um comando como entrada para outro comando.
+
+Tudo isso é realizado através dos chamados meta caracteres que seriam os seguintes símbolos ( o pipe ‘|’ , os parênteses ‘(’  ‘)’ , o ampersand ‘&’ , o ponto e virgula ‘ ; ’ e os sinais de mai e de menos ‘<’  ‘>’), que são símbolos que representam significados especiais para o Linux.
+
+Vou exemplificar os diversa situações desses caracteres:
+
+{% highlight shell %}
+  $ cat /etc/passwd | sort | less
+
+{% endhighlight %}
