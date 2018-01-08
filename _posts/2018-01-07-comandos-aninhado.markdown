@@ -15,12 +15,24 @@ Tudo isso é realizado através dos chamados meta caracteres que seriam os segui
 
 Vou exemplificar as diversas situações desses caracteres:
 
-~~~ ruby
+~~~ terminal
 
   $ cat /etc/passwd | sort | less
 
 ~~~
 
+{% highlight ruby %}
+  def foo
+    puts 'foo'
+  end
+{% endhighlight %}
+
+~~~ ruby
+  def what?
+    42
+  end
+
+~~~
 
 O pipe pode ser usado para pegar o resultado de saída de um comando e concatená-lo com outros comandos, o exemplo acima usa o comando cat para copiar a entrada do arquivo no endereço etc/passwd e ordenar a saída com sort e finalmente dessa ordenação criar uma paginação usando o comando less.
 
