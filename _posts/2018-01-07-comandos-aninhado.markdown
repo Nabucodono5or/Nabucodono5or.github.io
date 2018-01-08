@@ -15,7 +15,7 @@ Tudo isso é realizado através dos chamados meta caracteres que seriam os segui
 
 Vou exemplificar as diversas situações desses caracteres:
 
-~~~ shell
+~~~ ruby
 
   $ cat /etc/passwd | sort | less
 
