@@ -21,11 +21,15 @@ Vou exemplificar as diversas situações desses caracteres:
 
 ~~~
 
+alguma coisa aqui
+
 {% highlight ruby %}
   def foo
     puts 'foo'
   end
 {% endhighlight %}
+
+alguma coisa aqui
 
 ~~~ ruby
   def what?
