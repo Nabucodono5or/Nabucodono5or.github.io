@@ -15,56 +15,52 @@ Tudo isso é realizado através dos chamados meta caracteres que seriam os segui
 
 Vou exemplificar as diversas situações desses caracteres:
 
-~~~ terminal
+~~~ shell
 
   $ cat /etc/passwd | sort | less
 
 ~~~
 
-
-alguma coisa aqui
-
-~~~ 
-  def what?
-    42
-  end
-
-~~~
-{: .language-ruby}
-
 O pipe pode ser usado para pegar o resultado de saída de um comando e concatená-lo com outros comandos, o exemplo acima usa o comando cat para copiar a entrada do arquivo no endereço etc/passwd e ordenar a saída com sort e finalmente dessa ordenação criar uma paginação usando o comando less.
 
 O mais( > ) e menos( < ) são geralmente usados para direcionar o conteúdo de saída de comandos para algum arquivo ou algum arquivo para um comando, Um exemplo simples é o de baixo, onde uso o comando echo para escrever a palavra "vazio" como saída no terminal, contudo direciono o resultado para um arquivo que crio imediatamente:
 
-{% highlight shell %}
+
+~~~ shell
+
   $ echo "vazio" > novo.txt
 
-{% endhighlight %}
-
+~~~
 
 É possível alocar comandos de forma sequencial, basta colocar ponto e vírgula depois de cada comando.
 
-{% highlight shell %}
+  ~~~ shell
+
   $ date; echo "vazio" > novo.txt; date
 
-{% endhighlight %}
+  ~~~
+
+
 
 O comando acima realiza a mesma ação anterior exceto que agora uso do ponto virgula adcionar ações antes e depois do comando echo para pegar o tempo da tarefa. Aqui tá de forma bem simples, contudo caso você precise realizar uma tarefa mais longa, essa é uma boa forma de você capturar o tempo gasto na ação.
 
 
 Com o & é possível deixar o comando no modo background, é bem útil para aqueles comandos bem longos, só lembre de deixar um comando para avisar o seu término como no exemplo abaixo, e fica de aviso, se você fechar o shell o comando será morto se não tiver terminado ainda.
 
-{% highlight shell %}
-  $ find /home | grep novo &
+~~~ shell
 
-{% endhighlight %}
+ $ find /home | grep novo &
+
+~~~
 
 Eu cheguei a dizer que o pipe ele conecta ( concatena) o resultado de um comando ao outro, contudo se você está interessado em transformar a saída de um comando como o próprio argumento, talvez o melhor para você é o uso dos parênteses, basicamente o que eles fazem é transformar a saída em um argumento para o outro comando com as opções e tudo. Os parênteses são conhecidos como comandos de substituição.
 
-{% highlight shell %}
+  ~~~ shell
+
   $ find (/home | grep novo)
 
-{% endhighlight %}
+  ~~~
+
 
 Estou usando o resultado da ação dentro dos parenteses como argumento para o comando find. Logo o que está dentro dos parenteses é substituído pelo resultado em si da ação.
 
