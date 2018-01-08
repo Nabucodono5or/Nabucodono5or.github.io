@@ -23,6 +23,12 @@ Vou exemplificar as diversas situações desses caracteres:
 
 O pipe pode ser usado para pegar o resultado de saída de um comando e concatená-lo com outros comandos, o exemplo acima usa o comando cat para copiar a entrada do arquivo no endereço etc/passwd e ordenar a saída com sort e finalmente dessa ordenação criar uma paginação usando o comando less.
 
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
 O mais( > ) e menos( < ) são geralmente usados para direcionar o conteúdo de saída de comandos para algum arquivo ou algum arquivo para um comando, Um exemplo simples é o de baixo, onde uso o comando echo para escrever a palavra "vazio" como saída no terminal, contudo direciono o resultado para um arquivo que crio imediatamente:
 
 
