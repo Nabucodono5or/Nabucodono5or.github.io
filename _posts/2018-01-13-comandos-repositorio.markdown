@@ -26,7 +26,7 @@ Geralmente quando você está querendo instalar um software (geralmente de uma f
 
 ~~~
 
-O que esse  comando faz é adicionar o repositório do spotify que você quer instalar ao seu computador como um arquivo **.repo** (repare no final do link). Ou seja você está usando o comando dnf config-manager para adicionar o link (opção --add-repo) da seguinte url, "http://negativo17.org/repos/fedora-spotify.repo" de onde você baixará o spotify, e a partir deste momento o repositório constará no seu fedora como uma das fontes de update e opção de software.
+O que esse  comando faz é adicionar o repositório do spotify que você quer instalar ao seu computador como um arquivo **.repo** (repare no final do link). Ou seja você está usando o comando dnf config-manager para adicionar o link (opção --add-repo) da seguinte url, "_http://negativo17.org/repos/fedora-spotify.repo_" de onde você baixará o spotify, e a partir deste momento o repositório constará no seu fedora como uma das fontes de update e opção de software.
 
 O comando original é o seguinte :
 
