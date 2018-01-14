@@ -5,8 +5,8 @@ date: 2018-01-13
 categories:
   - linux
 description:
-image: https://source.unsplash.com/user/_rishideep_/fiCYNV51m4/2000x1200
-image-sm: https://source.unsplash.com/user/_rishideep_/fiCYNV51m4/500x300
+image: https://source.unsplash.com/user/firsara/67l-QujB14w/2000x1200
+image-sm: https://source.unsplash.com/user/firsara/67l-QujB14w/500x300
 ---
 
 Assim como muitos que começam no linux, eu era do tipo que buscava soluções na internet para realizar ações no sistema e acabava por fazer o velho copiar e colar de comandos. Contudo esse comportamento sempre me perturbou tal qual hoje eu prefiro saber o que estou inserindo como comando na meu terminal ao simples copiar de comandos aleatórios, e graças a esse novo hábito amplie meu nível de conhecimento ao sistema e cada vez menos preciso buscar soluções na internet devido as minhas experiências anteriores. Porém vamos deixar de histórias e seguir para o foco do artigo.
