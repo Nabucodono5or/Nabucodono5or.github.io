@@ -144,23 +144,23 @@ Então para resolver isso basta impedir que ambas Threads acessem o mesmo métod
 
 ~~~ java
 
-package multithreadingexemplo;
+  package multithreadingexemplo;
 
-/**
- *
- * @author jeffetrson
- */
-public class Singleton {
+  /**
+  *
+  * @author jeffetrson
+  */
+  public class Singleton {
         private static Singleton INSTANCE;
 
-    public static synchronized Singleton getInstance(){
-        if(INSTANCE == null){
-            INSTANCE = new Singleton();
-        }
-        return INSTANCE;
-    }
+      public static synchronized Singleton getInstance(){
+          if(INSTANCE == null){
+              INSTANCE = new Singleton();
+          }
+          return INSTANCE;
+      }
 
-}
+  }
 
 ~~~
 
@@ -171,23 +171,23 @@ Contudo Java VM não é obrigada a fazer o valor de instance surgir até a VM al
 
 ~~~ java
 
-package multithreadingexemplo;
+    package multithreadingexemplo;
 
-/**
- *
- * @author jeffetrson
- */
-public class Singleton {
-        private static volatile Singleton INSTANCE;
+    /**
+     *
+     * @author jeffetrson
+     */
+    public class Singleton {
+            private static volatile Singleton INSTANCE;
 
-    public static synchronized Singleton getInstance(){
-        if(INSTANCE == null){
-            INSTANCE = new Singleton();
+        public static synchronized Singleton getInstance(){
+            if(INSTANCE == null){
+                INSTANCE = new Singleton();
+            }
+            return INSTANCE;
         }
-        return INSTANCE;
-    }
 
-}
+    }
 
 
 ~~~
@@ -196,26 +196,27 @@ public class Singleton {
 Uma outra questão é que as ações acima de synchronized podem deixar nossa aplicação “lenta”, já que precisamos sempre regular o acesso ao getInstance para cada Thread, e sabemos como otimização é algo essencial para dispositivos android. Então para resolver basta notarmos que não precisamos sempre organizar o acesso dos Threads para impedir instanciações diferentes, apenas quando a classe INSTANCE é nula, ou seja, apenas no primeiro acesso a ela. Portanto trocamos a palavra-chave synchronized por um bloco synchronized com a entrada da própria classe como parâmetro.
 
 ~~~ java
-package multithreadingexemplo;
 
-/**
- *
- * @author jeffetrson
- */
-public class Singleton {
-        private static volatile Singleton INSTANCE;
+    package multithreadingexemplo;
 
-    public static synchronized Singleton getInstance(){
-        if(INSTANCE == null){
+    /**
+     *
+     * @author jeffetrson
+     */
+    public class Singleton {
+            private static volatile Singleton INSTANCE;
 
-          synchronized(Singleton.class){
-              INSTANCE = new Singleton();
-          }
+        public static synchronized Singleton getInstance(){
+            if(INSTANCE == null){
+
+              synchronized(Singleton.class){
+                  INSTANCE = new Singleton();
+              }
+            }
+            return INSTANCE;
         }
-        return INSTANCE;
-    }
 
-}
+    }
 
 ~~~
 
