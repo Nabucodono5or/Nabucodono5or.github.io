@@ -16,7 +16,8 @@ default_img:
 # Profile settings
 name: Jefferson Abreu
 profile_img: https://unsplash.it/2000/1200?image=20
-profile: "Jefferson Abreu em poucas palavras: Estudante, programador e criativo."
+profile: "Jefferson Abreu é estudante de Analise e Desenvolvimento de Sistemas no instituto Infnet,
+pode ser descrito em poucas palavras: Estudante, programador, autodidata e criativo."
 social:
   github: https://github.com/Nabucodono5or
   twitter: https://twitter.com/nabucodono5or
