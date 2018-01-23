@@ -34,9 +34,9 @@ public class Singleton {
 
 ~~~
 
-O exemplo acima assegura que a classe singleton só possa ser instanciada através do método getInstance, simplesmente tornando o construtor privado. O método getInstance é static, podendo ser acessado diretamente da classe e retorna uma instancia da própria classe. Instancia que é o retorno da variável static INSTANCE. O método getInstance também assegura que haja somente uma instanciação da classe através de um pequeno check se a classe é null, caso contrário getInstance irá retornar a mesma instancia.
+O exemplo acima assegura que a classe singleton só possa ser instanciada através do método getInstance, simplesmente tornando o construtor privado. O método getInstance é static, podendo ser acessado diretamente da classe e retorna uma instancia da própria classe. Instancia que é o retorno da variável static **INSTANCE**. O método getInstance também assegura que haja somente uma instanciação da classe através de um pequeno check se a classe é null, caso contrário getInstance irá retornar a mesma instancia.
 
-Dessa forma é bem direto como podemos trabalhar com a classe singleton, e podemos verificar através do método hashCode() da classe Object que todas as classes herdam, que os objetos são iguais. A hash key que retorna é a mesma se os objetos são iguais.
+Dessa forma é bem direto como podemos trabalhar com a classe singleton, e podemos verificar através do método **hashCode()** da classe Object que todas as classes herdam, que os objetos são iguais. A *hash key* que retorna é a mesma se os objetos são iguais.
 
 ~~~ java
 package singletonexemplo;
@@ -69,17 +69,17 @@ public class SingletonExemplo {
 
 
 
-Podemos nos beneficiar desse comportamento para obter um RestClient para o tratamento de uma Retrofit em Android.
+Podemos nos beneficiar desse comportamento para obter um **RestClient** para o tratamento de uma Retrofit em Android.
 
 ~~~ java
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+public class RestClient {
 
     private static Retrofit retrofit = null;
 
-    public static Retrofit getClient(String baseUrl) {
+    public static Retrofit getInstace(String baseUrl) {
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
@@ -92,10 +92,10 @@ public class RetrofitClient {
 ~~~
 
 
-Onde nos asseguramos que haja somente a instanciação uma única vez para diversas requisições. E podemos lidar com tudo isso somente chamando RestClient.getInstace() para obter uma o objeto para fazer a requisição.
+Onde nos asseguramos que haja somente a instanciação uma única vez para diversas requisições. E podemos lidar com tudo isso somente chamando **RestClient.getInstace()** para obter uma o objeto para fazer a requisição.
 
 
-Agora gostaria de abordar como lidar com multithreading, que é um detalhe muito importante quando você quer trabalhar com instancias únicas em diversas tasks. Para isso gosto de usar o teste abaixo com a classe singleton, para demonstrar isso de forma mais direta:
+Agora gostaria de abordar como lidar com *multithreading*, que é um detalhe muito importante quando você quer trabalhar com instancias únicas em diversas *tasks*. Para isso gosto de usar o teste abaixo com a classe singleton, para demonstrar isso de forma mais direta:
 
 ~~~ java
 
@@ -140,7 +140,7 @@ public class MultiThreadingExemplo {
 
 Ao executar o código muitas vezes uma hora criaremos instancias diferentes para a mesma singleton, o que por sí só já  viola a proposta desse padrão de projeto. O que afinal está acontecendo? Basicamente executamos a condição INSTANCE == null ao mesmo tempo e por causa disso foram retornados duas novas instancias da mesma classe, não houve como verificar se as duas Threads estavam acessando ao mesmo tempo o mesmo método.
 
-Então para resolver isso basta impedir que ambas Threads acessem o mesmo método ao mesmo tempo. Bom, para isso basta fazer Synchronized o método getInstance.
+Então para resolver isso basta impedir que ambas Threads acessem o mesmo método ao mesmo tempo. Bom, para isso basta fazer **Synchronized** o método getInstance.
 
 ~~~ java
 
@@ -167,7 +167,7 @@ public class Singleton {
 
 Para aqueles que não saibam o que a palavra-chave synchronized faz, ela trabalha em sincronizar (óbvio) o acesso de Threads a um mesmo recurso, no caso aqui o método getInstance, dessa forma uma Thread não pode acessar um recurso de um mesmo objeto se ele estiver já estiver sendo acessado por outra Thread, no caso ela espera a primeiro terminar o uso. Mantemos assim a integridade do objeto e seus dados.
 
-Contudo Java VM não é obrigada a fazer o valor de instance surgir até a VM alcançar  um estado conhecido como “memory barrier”, tornado ainda quebrado nosso esquema, e vendo nossa INSTANCE  metade inicializada. Para impedir disso acontecer usamos a palavra-chave volatile, garantindo que toda nossa ação ira acontecer antes mesmo de qualquer leitura da INSTANCE.
+Contudo Java VM não é obrigada a fazer o valor de instance surgir até a VM alcançar  um estado conhecido como *“memory barrier”*, tornado ainda quebrado nosso esquema, e vendo nossa INSTANCE  metade inicializada. Para impedir disso acontecer usamos a palavra-chave **volatile**, garantindo que toda nossa ação ira acontecer antes mesmo de qualquer leitura da INSTANCE.
 
 ~~~ java
 
