@@ -14,23 +14,24 @@ Singleton é um padrão de projeto que limita a instanciação de uma classe par
 A classe singleton é responsável por instanciar a si mesma, ou pode delegar a criação de um objeto a uma classe factory ( outro padrão de projeto).
 
 ~~~ java
-package singletonexemplo;
 
-/**
- *
- * @author jeffetrson
- */
-public class Singleton {
-        private static Singleton INSTANCE;
+    package singletonexemplo;
 
-    public static Singleton getInstance(){
-        if(INSTANCE == null){
-            INSTANCE = new Singleton();
+    /**
+     *
+     * @author jeffetrson
+     */
+    public class Singleton {
+            private static Singleton INSTANCE;
+
+        public static Singleton getInstance(){
+            if(INSTANCE == null){
+                INSTANCE = new Singleton();
+            }
+            return INSTANCE;
         }
-        return INSTANCE;
-    }
 
-}
+    }
 
 ~~~
 
@@ -39,31 +40,32 @@ O exemplo acima assegura que a classe singleton só possa ser instanciada atrav�
 Dessa forma é bem direto como podemos trabalhar com a classe singleton, e podemos verificar através do método **hashCode()** da classe Object que todas as classes herdam, que os objetos são iguais. A *hash key* que retorna é a mesma se os objetos são iguais.
 
 ~~~ java
-package singletonexemplo;
 
-/**
- *
- * @author jeffetrson
- */
-public class SingletonExemplo {
+    package singletonexemplo;
 
     /**
-     * @param args the command line arguments
+     *
+     * @author jeffetrson
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Singleton s1 = Singleton.getInstance();
+    public class SingletonExemplo {
 
-        Singleton s2 = Singleton.getInstance();
+        /**
+         * @param args the command line arguments
+         */
+        public static void main(String[] args) {
+            // TODO code application logic here
+            Singleton s1 = Singleton.getInstance();
 
-        if(s1.hashCode() == s2.hashCode()) System.out.println("--São igauis--");
+            Singleton s2 = Singleton.getInstance();
 
-        System.out.println("hashcode de s1 : " + s1.hashCode() );
-        System.out.println("hashcode de s2 : " + s2.hashCode() );
+            if(s1.hashCode() == s2.hashCode()) System.out.println("--São igauis--");
+
+            System.out.println("hashcode de s1 : " + s1.hashCode() );
+            System.out.println("hashcode de s2 : " + s2.hashCode() );
+
+        }
 
     }
-
-}
 
 ~~~
 
@@ -72,23 +74,25 @@ public class SingletonExemplo {
 Podemos nos beneficiar desse comportamento para obter um **RestClient** para o tratamento de uma Retrofit em Android.
 
 ~~~ java
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RestClient {
+    import retrofit2.Retrofit;
+    import retrofit2.converter.gson.GsonConverterFactory;
 
-    private static Retrofit retrofit = null;
+    public class RestClient {
 
-    public static Retrofit getInstace(String baseUrl) {
-        if (retrofit==null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+        private static Retrofit retrofit = null;
+
+        public static Retrofit getInstace(String baseUrl) {
+            if (retrofit==null) {
+                retrofit = new Retrofit.Builder()
+                        .baseUrl(baseUrl)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+            }
+            return retrofit;
         }
-        return retrofit;
     }
-}
+
 ~~~
 
 
@@ -99,41 +103,41 @@ Agora gostaria de abordar como lidar com *multithreading*, que é um detalhe mui
 
 ~~~ java
 
-package multithreadingexemplo;
-
-/**
- *
- * @author jeffetrson
- */
-public class MultiThreadingExemplo {
+    package multithreadingexemplo;
 
     /**
-     * @param args the command line arguments
+     *
+     * @author jeffetrson
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public class MultiThreadingExemplo {
 
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Singleton s1 = new Singleton();
-                System.out.println("primeira singleton " + s1.hashCode());
-            }
-        });
+        /**
+         * @param args the command line arguments
+         */
+        public static void main(String[] args) {
+            // TODO code application logic here
 
-        Thread t2 = new Thread(new Runnable(){
-            @Override
-            public void run() {
-                Singleton s2 = new Singleton();
-                System.out.println("segunda singleton "+ s2.hashCode());
-            }
-        });
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Singleton s1 = new Singleton();
+                    System.out.println("primeira singleton " + s1.hashCode());
+                }
+            });
 
-        t1.start();
-        t2.start();
+            Thread t2 = new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    Singleton s2 = new Singleton();
+                    System.out.println("segunda singleton "+ s2.hashCode());
+                }
+            });
+
+            t1.start();
+            t2.start();
+        }
+
     }
-
-}
 
 ~~~
 
@@ -144,23 +148,23 @@ Então para resolver isso basta impedir que ambas Threads acessem o mesmo métod
 
 ~~~ java
 
-  package multithreadingexemplo;
+    package multithreadingexemplo;
 
-  /**
-  *
-  * @author jeffetrson
-  */
-  public class Singleton {
-        private static Singleton INSTANCE;
+    /**
+    *
+    * @author jeffetrson
+    */
+    public class Singleton {
+          private static Singleton INSTANCE;
 
-      public static synchronized Singleton getInstance(){
-          if(INSTANCE == null){
-              INSTANCE = new Singleton();
-          }
-          return INSTANCE;
-      }
+        public static synchronized Singleton getInstance(){
+            if(INSTANCE == null){
+                INSTANCE = new Singleton();
+            }
+            return INSTANCE;
+        }
 
-  }
+    }
 
 ~~~
 
