@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Filters no AngularJs"
-date: 2019-08-11
+date: 2019-08-19
 categories:
   - Javascript
 description:
-image: https://source.unsplash.com/user/markusspiske/AaEQmoufHLk/2000x1200
-image-sm: https://source.unsplash.com/user/markusspiske/AaEQmoufHLk/500x300
+image: https://source.unsplash.com/2xU7rYxsTiM/2000x1200
+image-sm: https://source.unsplash.com/2xU7rYxsTiM/500x300
 ---
 
 Filters era para mim quando comecei a utilizar o framework AngularJs, desinteressantes, porém hoje as considero uma das funcionalidades mais relevantes do AngularJs, principalmente quando você tem de lidar com listas de dados requisitados de uma API. A Partir disso deixe-me compartilhar suas funcionalidades.
@@ -154,3 +154,5 @@ angular.module('myApp', [])
 
 É possível usar filters não somente em services e Controllers, mas também em directivas.
 Filters são uma mão na roda, principalmente se você quer praticidade, manipular dados se tornou uma tarefa bastante rotineira ao programar hoje, então por que não deixá-la simples?
+
+Fonte: https://docs.angularjs.org/guide/filter
