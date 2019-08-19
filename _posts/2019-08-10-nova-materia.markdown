@@ -17,7 +17,7 @@ Para o uso em templates é bem simples, ainda que na minha opinião não seja se
 
   ~~~ javascript
 
-    //  {{ expression | filter }}
+      \*{{ expression | filter }}
 
   ~~~
 <br>
@@ -26,7 +26,7 @@ Para o uso em templates é bem simples, ainda que na minha opinião não seja se
 
  ~~~ javascript
 
-    //  {{ 12 | currency }}
+      {{ 12 | currency }}
 
  ~~~
 <br>
@@ -37,7 +37,7 @@ Filters podem serem aplicados em resultados de outros filters. Isso é chamado d
 
  ~~~ javascript
 
-      // {{ expression | filter1 | filter2 | ... }}
+       {{ expression | filter1 | filter2 | ... }}
 
  ~~~
 <br>
@@ -46,7 +46,7 @@ O número de filters chaining pode variar de dois ou mais. Filters também podem
 
 ~~~ javascript
 
-    // {{ expression | filter:argument1:argument2:... }}
+     {{ expression | filter:argument1:argument2:... }}
 
 ~~~
 <br>
@@ -56,7 +56,7 @@ Abaixo executamos o mesmo código que formata o valor '12' para moeda, contudo a
 
 ~~~ javascript
 
-      // {{ 12 | currency:'$':'2' }}
+       {{ 12 | currency:'$':'2' }}
 
 ~~~
 <br>
