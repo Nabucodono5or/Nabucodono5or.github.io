@@ -15,12 +15,11 @@ Em sua definição Filters formatam o valor de uma expressão de modo a ser exib
 
 Para o uso em templates é bem simples, ainda que na minha opinião não seja seu melhor uso. Em templates é utilizado para expressões e outros filters. Para seu uso utilizamos duas chaves {{}} contornado a declaração e seu valor:
 
+  ~~~ javascript
 
-~~~ Shell
+    {{ expression | filter }}
 
-  {{ expression | filter }}
-
-~~~
+  ~~~
 
  Onde expression é qualquer valor ou variável, e filter seria tanto um bult-in quanto um criado por nós mesmos. Observe que ele está dentro de chaves, a expressão e o filter, porém separados por uma barra. Essa barra é importante para separar expressão e filter e fazer o filter compreender que a expressão é um argumento passado a ele. Um exemplo prático disso está abaixo:
 
