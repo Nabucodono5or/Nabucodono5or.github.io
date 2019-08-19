@@ -54,9 +54,9 @@ O número de filters chaining pode variar de dois ou mais. Filters também podem
 Abaixo executamos o mesmo código que formata o valor '12' para moeda, contudo agora com um segundo argumento definindo a quantidade de casas decimais. Neste caso utilizamos dois pontos para separar os argumentos. O código retorna '$12.00'.
 
 
-~~~ angularjs
+~~~ javascript
 
-       {{ 12 | currency:'$':'2' }}
+       ``{{`` 12 | currency:'$':'2' ``}}``
 
 ~~~
 <br>
