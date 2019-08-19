@@ -55,7 +55,7 @@ Abaixo executamos o mesmo código que formata o valor '12' para moeda, contudo a
 
 ```
 
-  {{ 12 | currency:'$':'2' }}
+  \{\{ 12 \| currency:'$':'2' \}\}
 
 ```
 <br>
