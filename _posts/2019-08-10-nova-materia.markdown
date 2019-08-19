@@ -19,35 +19,84 @@ ao usuário. O próprio AngularJs possui filters bult-in, próprios do framework
 Para o uso em templates é bem simples, ainda que na minha opnião não seja seu melhor uso. Em
 templates é utilizado para expressões e outros filters. Para seu uso utilizamos duas chaves {{}} contornado a declaração e seu valor:
 
- *código {{ expression | filter }}*
+~~~Javascript
 
+  {{ expression | filter }}
+
+~~~
  Onde expression é qualquer valor ou variável, e filter seria tanto um bult-in quanto um criado por nós mesmos. Observe que ele está dentro de chaves, espressão e filter, porém separados por uma barra. Essa barra é importante para separar expressão e filter e fazer o filter compreender que a expressão é um argumento passado a ele. Um exemplo prático disso está abaixo:
 
- *código {{ 12 | filterqualquer }}*
+ ~~~Javascript
 
-  O valor '12' é alterado pelo 'filterqualquer', que é o nosso filter, retornando um novo valor. Mas preste atenção, filters não se tratam de apenas alterar um valor, eles são como o próprio nome indica "filtradores", então podemos usá-los para "filtrar" valores que atendam a uma especificidade. Esses valores serão exibidos ou alterados dependendo do filter usado.
+   {{ 12 | currency }}
 
- *Resultado do filter*
+ ~~~
 
- Filters podem serem aplicados em resultados de outros filters. Isso é chamado de 'chaining', no caso estamos aninhando filters.
+  O valor '12' é alterado pelo 'currency', que é o nosso filter, retornando um novo valor. O valor retornado é uma formatação para valor de moeda '$12.00'. Mas preste atenção, filters não se tratam de apenas alterar um valor, eles são como o próprio nome indica "filtradores", então podemos usá-los para "filtrar" valores que atendam a uma especificidade. Esses valores serão exibidos ou alterados dependendo do filter usado.
 
-*{{ expression | filter1 | filter2 | ... }}*
 
- *Exemplos abaixo de chaining*
+ Filters podem serem aplicados em resultados de outros filters. Isso é chamado de 'chaining', no caso estamos aninhando filters. A expressão segue abaixo.
+
+ ~~~Javascript
+
+{{ expression | filter1 | filter2 | ... }}
+
+ ~~~
 
 O número de filters chaining pode variar de dois ou mais. Filters também podem possuirem argumentos mesmo em template html, e seu numero também pode variar.
 
-*{{ expression | filter:argument1:argument2:... }}*
+~~~Javascript
 
-Neste caso utilizamos dois pontos para separar os argumentos.
+{{ expression | filter:argument1:argument2:... }}
 
-*exemplo de filter com argumentos*
-*Resultado*
+~~~
 
-Filters em Controllers e services:
+Abaixo executamos o mesmo código que formata casas decimais, contudo agora com um segundo argumento definindo as casas decimais.
+
+~~~Javascript
+
+{{ 12 | currency:'$':'2' }}
+
+~~~
+
+Neste caso utilizamos dois pontos para separar os argumentos. O código retorna '$12.00';
+
+# Filters em Controllers e services:
 Para usar filters dentro de services e Controllers, precisamos primeiramente declará-los como dependência. Para declarar um filter, seja ele bult-in ou não do framework, basta fazer DI (dependency injection). E então eles serão repassados como argumentos dentro do próprio código.
 
-*exemplo de codigo controller com um filter*
+~~~Javascript
+
+(function () {
+
+  function FilterContorller(filterFilter) {
+    this.pokemon = [
+      {
+        nome: 'Chamander',
+        tipo: 'Fogo',
+      },
+      {
+        nome: 'Bulbasaur',
+        tipo: 'Planta',
+      },
+      {
+        nome: 'Squirtle',
+        tipo: 'Água',
+      },
+      {
+        nome: 'Arcanaine',
+        tipo: 'Fogo',
+      }
+    ];
+
+    this.pokemonFiltrados = filterFilter(this.pokemon, 'Fogo');
+  }
+
+  angular.module('myApp', [])
+    .controller('FilterContorller', ['filterFilter', FilterContorller]);
+
+})()
+
+~~~
 
 No código acima declaramos o filter como argumento do nosso controller, e o utilizamos para filtrar (array ou objetos) em uma nova lista de valores definidos pelo filter e seu argumento. No caso acima seria ...(explicação do qu estou filtrando).
 
@@ -55,11 +104,54 @@ Veja que poderiamos filtrar essa mesma lista usando o filter na directiva ng-rep
 
 Abaixo seu uso no html onde usamos o ng-repeat para trabalhar com somente uma lista, que pode ser alterada quando quisermos e de diversas formas dento do controller através de outros filters.
 
-*código html*
+~~~HTML
+
+<body ng-app="myApp">
+  <div ng-controller="FilterContorller as $ctrl">
+    <p ng-repeat="pokemon in $ctrl.pokemonFiltrados">
+      {{ pokemon.nome }} - Tipo: {{ pokemon.tipo }}
+    </p>
+  </div>
+</body>
+
+~~~
 
 No uso de services realizamos os mesmos passos: declaramos o filter como dependencia e o usamos para filtrar os valores da lista. No código usamos um método para alterar o valor e retorná-lo.
 
-*código abaxo de um service*
+~~~Javascript
+
+function FilterService(filterFilter) {
+  this.pokemon = [
+    {
+      nome: 'Chamander',
+      tipo: 'Fogo',
+    },
+    {
+      nome: 'Bulbasaur',
+      tipo: 'Planta',
+    },
+    {
+      nome: 'Squirtle',
+      tipo: 'Água',
+    },
+    {
+      nome: 'Arcanaine',
+      tipo: 'Fogo',
+    }
+  ];
+
+
+  this.filtrePokemonPorTipo = function filtrePokemonPorTipo(tipo) {
+    this.pokemonFiltrados = filterFilter(this.pokemon, tipo);
+    return this.pokemonFiltrados;
+  }
+}
+
+angular.module('myApp', [])
+  .service('FilterService', ['filterFilter', FilterService])
+  .controller('FilterContorller', ['FilterService', FilterContorller]);
+
+~~~
 
 É possível usar filters não somente em services e Controllers, ele tamém é usável em directivas.
 Filters são uma mão na roda principalmente se você quer práticidade, manipular dados se tornou uma tarefa bastante rotineira ao programar hoje, então por que não deixá-la simples?
