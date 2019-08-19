@@ -15,17 +15,17 @@ Em sua definição Filters formatam o valor de uma expressão de modo a ser exib
 
 Para o uso em templates é bem simples, ainda que na minha opinião não seja seu melhor uso. Em templates é utilizado para expressões e outros filters. Para seu uso utilizamos duas chaves {{}} contornado a declaração e seu valor:
 
-  ~~~ html
+  ~~~ java
 
-    {{ expression | filter }}
+      {{ expression | filter }}
 
   ~~~
 
  Onde expression é qualquer valor ou variável, e filter seria tanto um bult-in quanto um criado por nós mesmos. Observe que ele está dentro de chaves, a expressão e o filter, porém separados por uma barra. Essa barra é importante para separar expressão e filter e fazer o filter compreender que a expressão é um argumento passado a ele. Um exemplo prático disso está abaixo:
 
- ~~~ html
+ ~~~ java
 
-   {{ 12 | currency }}
+      {{ 12 | currency }}
 
  ~~~
 
@@ -33,26 +33,26 @@ O valor '12' é alterado pelo 'currency', que é o nosso filter, retornando um n
 
 Filters podem serem aplicados em resultados de outros filters. Isso é chamado de 'chaining', no caso estamos aninhando filters. A expressão segue abaixo.
 
- ~~~ html
+ ~~~ java
 
-{{ expression | filter1 | filter2 | ... }}
+      {{ expression | filter1 | filter2 | ... }}
 
  ~~~
 
 O número de filters chaining pode variar de dois ou mais. Filters também podem possuir argumentos mesmo em template html, e seu número também pode variar.
 
-~~~ html
+~~~ java
 
-{{ expression | filter:argument1:argument2:... }}
+    {{ expression | filter:argument1:argument2:... }}
 
 ~~~
 
 Abaixo executamos o mesmo código que formata o valor '12' para moeda, contudo agora com um segundo argumento definindo a quantidade de casas decimais. Neste caso utilizamos dois pontos para separar os argumentos. O código retorna '$12.00'.
 
 
-~~~ html
+~~~ java
 
-{{ 12 | currency:'$':'2' }}
+      {{ 12 | currency:'$':'2' }}
 
 ~~~
 
@@ -64,35 +64,35 @@ Abaixo temos um código bem divertido que lida com um grupo de objetos pokémon,
 
 ~~~ javascript
 
-(function () {
+      (function () {
 
-  function FilterContorller(filterFilter) {
-    this.pokemon = [
-      {
-        nome: 'Chamander',
-        tipo: 'Fogo',
-      },
-      {
-        nome: 'Bulbasaur',
-        tipo: 'Planta',
-      },
-      {
-        nome: 'Squirtle',
-        tipo: 'Água',
-      },
-      {
-        nome: 'Arcanaine',
-        tipo: 'Fogo',
-      }
-    ];
+        function FilterContorller(filterFilter) {
+          this.pokemon = [
+            {
+              nome: 'Chamander',
+              tipo: 'Fogo',
+            },
+            {
+              nome: 'Bulbasaur',
+              tipo: 'Planta',
+            },
+            {
+              nome: 'Squirtle',
+              tipo: 'Água',
+            },
+            {
+              nome: 'Arcanaine',
+              tipo: 'Fogo',
+            }
+          ];
 
-    this.pokemonFiltrados = filterFilter(this.pokemon, 'Fogo');
-  }
+          this.pokemonFiltrados = filterFilter(this.pokemon, 'Fogo');
+        }
 
-  angular.module('myApp', [])
-    .controller('FilterContorller', ['filterFilter', FilterContorller]);
+        angular.module('myApp', [])
+          .controller('FilterContorller', ['filterFilter', FilterContorller]);
 
-})()
+      })()
 
 ~~~
 
@@ -104,13 +104,13 @@ Abaixo seu uso no html onde usamos o ng-repeat para trabalhar com somente a list
 
 ~~~ html
 
-<body ng-app="myApp">
-  <div ng-controller="FilterContorller as $ctrl">
-    <p ng-repeat="pokemon in $ctrl.pokemonFiltrados">
-      {{ pokemon.nome }} - Tipo: {{ pokemon.tipo }}
-    </p>
-  </div>
-</body>
+      <body ng-app="myApp">
+        <div ng-controller="FilterContorller as $ctrl">
+          <p ng-repeat="pokemon in $ctrl.pokemonFiltrados">
+            {{ pokemon.nome }} - Tipo: {{ pokemon.tipo }}
+          </p>
+        </div>
+      </body>
 
 ~~~
 
@@ -118,36 +118,36 @@ No uso de services realizamos os mesmos passos: declaramos o filter como depend�
 
 ~~~ javascript
 
-function FilterService(filterFilter) {
-  this.pokemon = [
-    {
-      nome: 'Chamander',
-      tipo: 'Fogo',
-    },
-    {
-      nome: 'Bulbasaur',
-      tipo: 'Planta',
-    },
-    {
-      nome: 'Squirtle',
-      tipo: 'Água',
-    },
-    {
-      nome: 'Arcanaine',
-      tipo: 'Fogo',
-    }
-  ];
+      function FilterService(filterFilter) {
+        this.pokemon = [
+          {
+            nome: 'Chamander',
+            tipo: 'Fogo',
+          },
+          {
+            nome: 'Bulbasaur',
+            tipo: 'Planta',
+          },
+          {
+            nome: 'Squirtle',
+            tipo: 'Água',
+          },
+          {
+            nome: 'Arcanaine',
+            tipo: 'Fogo',
+          }
+        ];
 
 
-  this.filtrePokemonPorTipo = function filtrePokemonPorTipo(tipo) {
-    this.pokemonFiltrados = filterFilter(this.pokemon, tipo);
-    return this.pokemonFiltrados;
-  }
-}
+        this.filtrePokemonPorTipo = function filtrePokemonPorTipo(tipo) {
+          this.pokemonFiltrados = filterFilter(this.pokemon, tipo);
+          return this.pokemonFiltrados;
+        }
+      }
 
-angular.module('myApp', [])
-  .service('FilterService', ['filterFilter', FilterService])
-  .controller('FilterContorller', ['FilterService', FilterContorller]);
+      angular.module('myApp', [])
+        .service('FilterService', ['filterFilter', FilterService])
+        .controller('FilterContorller', ['FilterService', FilterContorller]);
 
 ~~~
 
