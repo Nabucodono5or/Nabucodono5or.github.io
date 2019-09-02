@@ -33,7 +33,7 @@ Filters customizáveis são simples de criarem, basicamente usaremos de **functi
 
 ~~~
 
-</br>
+<br>
 Na nossa função entregue pela factory é obrigatório que tenhamos um argumento, outros seriam opcionais. O argumento obrigatório é o valor que iremos filtrar, portanto essencial caso queiramos usar o filter posteriormente. O uso de filter e sua associação com o primeiro argumento ficará claro depois. O segundo argumento não é obrigatório e como o primeiro, será repassado através da chamada ao filter. Mas nesse caso o nosso segundo argumento acaba sendo importante.
 
 Detalhe a função criada deve ser uma **"pure function"**, o mesmo input deve responder ao mesmo output, então nada de generate, etc.
@@ -50,7 +50,7 @@ Com a function factory em mãos iremos acrescentá-los ao método filter do **mo
 
 ~~~
 
-</br>
+<br>
 Agora que criamos nosso filter é só usá-lo aonde queremos. Seu uso em controller é direto, declarem sua dependência, nesse caso estamos utilizando array annotation para a DI(denpendcy injecton). Dentro do controller interpretamos o filter como uma function que pode retornar um novo array ou mesmo uma string. Temos abaixo três listas criadas baseadas no que filtramos. Também utilizamos um service para separação de código.
 
 ~~~ javascript
@@ -100,7 +100,7 @@ Agora que criamos nosso filter é só usá-lo aonde queremos. Seu uso em control
 
 ~~~
 
-</br>
+<br>
 Também é possível como os demais filters utilizá-lo em templates html. Lembrando que usamos o formato { expressão | filter: option }, Contudo vale uma ressalva, filters entendem que a expressão está relacionada ao primeiro argumento de nosso filter. O segundo, ou outros argumentos provém de option intercalados com dois pontos, para cada argumento após o primeiro.
 Aqui só estamos listando os pokémon do tipo fogo para contexto de exemplo, mas poderíamos acessar qualquer lista, criada no controller.
 
@@ -117,7 +117,7 @@ Aqui só estamos listando os pokémon do tipo fogo para contexto de exemplo, mas
 
 ~~~
 
-</br>
+<br>
 Entregamos uma expressão que pode ser um valor primitivo ou objeto, e usamos o nome de nossa função para essa chamada. Resultado abaixo:
 
 ```
@@ -126,7 +126,7 @@ Entregamos uma expressão que pode ser um valor primitivo ou objeto, e usamos o 
       Arcanaine - Tipo: Fogo
 
 ```
-</br>
+<br>
 Uma observação, é meio que cómico mas extremamente útil. em templates o nome de filter é exatamente o que declaramos no método constructor filter() do module. No entanto o método adiciona a palavra filter no final da função, isso claramente só é contado quando assinamos os controllers com filters, algo que se torna obrigatório se queremos o filter em nosso código. Repetindo a exceção é somente no template. Sobre ser útil, é que com a necessidade do sufixo 'filter' dificilmente alguém pode se esquecer que tal função é um filter.
 
 Enfim com a criação de nossos próprios filters, temos toda a flexibilidade que necessitamos para a soluções de problemas e manipulação de dados. Eu mesmo em um artigo aqui enfatizei como eles são importantes.
