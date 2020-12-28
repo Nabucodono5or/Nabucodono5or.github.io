@@ -188,4 +188,4 @@ Abaixo código que altera a variável externa.
 <br>
 
 Tudo isso foi só para mostrar o quanto o conceito de interação e renderização é prático.
-O próximo passo para mim foi tentar encontrar uma forma mais eficiente de comunicar esses dados, pois trabalhar com gráficos pouquinho mais complexo do que medir dados e publicá-los na página web. No próximo artigo explico como amplie mais meus conhecimentos entendendo como estética e estatística se cruzam.
+O próximo passo para mim foi tentar encontrar uma forma mais eficiente de comunicar esses dados, pois trabalhar com gráficos pouquinho mais complexo exigem uma atenção maior do que apenas medi-los e publicá-los na página web. No próximo artigo explico como amplie mais meus conhecimentos entendendo como estética e estatística se cruzam.
