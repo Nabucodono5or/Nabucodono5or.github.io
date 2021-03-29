@@ -13,7 +13,7 @@ O mongodb tornou o meu desenvolvimento com banco de dados extremamente simples n
 
 Para esse projeto instalaremos o mongodb localmente. Atualmente o mongodb trabalha com armazenamento em nuvem, o serviço Atlas, contudo apenas para teste e aprendizado o próprio instalado já está bom demais. De qualquer forma apesar de mencionar o uso do banco mongodb em si o objetivo aqui é apresentar como ele pode funcionar bem com um backend, no caso o nodejs.
 
-Para instalar o mongodb caso você não o tenha, recomendo olhar o site https://www.mongodb.com/ que explica como instalar para cada plataforma. Se você utiliza Linux recomendo descobrir em qual distro foi baseado seu sistema e seguir o passo a passo, pois não adianta tentar pelo gerenciador de pacotes, nem o snap e nem flatpak.
+Para instalar o mongodb caso você não o tenha, recomendo olhar o site [https://www.mongodb.com/](https://www.mongodb.com/) que explica como instalar para cada plataforma. Se você utiliza Linux recomendo descobrir em qual distro foi baseado seu sistema e seguir o passo a passo, pois não adianta tentar pelo gerenciador de pacotes, nem o snap e nem flatpak.
 
 Para demonstrar como eu o uso criarei a seguinte estrutura de arquivos:
 
