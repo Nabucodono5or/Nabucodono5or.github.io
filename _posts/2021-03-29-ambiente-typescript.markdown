@@ -18,6 +18,8 @@ Depois que as primeiras pastas e arquivos são criados instalamos as bibliotecas
 
 ~~~ shell
 
+ $ npm install typescript --save-dev
+
 ~~~
 <br />
 
@@ -25,12 +27,16 @@ O typescript irá instalar a ferramenta tsc que pode ser executada da seguinte f
 
 ~~~ shell
 
+ $ npx tsc <arquivo>
+
 ~~~
 <br />
 
 No entanto, precisamos de mais configurações que o typecript possa nos oferecer. Então executamos o comando abaixo para criar um arquivo de configuração do próprio typescript.
 
 ~~~ shell
+
+ $ npx tsc --init
 
 ~~~
 <br />
@@ -120,23 +126,25 @@ Agora executamos o tsc apenas com o comando tsc sem qualquer argumento.
 
 ~~~ shell
 
-$ npx tsc
+ $ npx tsc
 
 ~~~
 <br />
 
 Vamos instalar agora o sucrase. O sucrase será nossa ferramento de desenvolvimento para a conversão do typescript para o javascript. O motivo de usar ele e não o tsc, é por duas razões: Primeiro ele é mais rápido; Segundo ele não checa todos os detalhes do código typescript, como erros de digitação ou tipo, o que será compensado com o nosso eslint depois, nos dando agilidade no desenvolvimento. Tsc é aceitável na fase de build, mas não na fase de desenvolvimento.
 
-~~~ shell
+```console
 
+ $ npm install --save-dev sucrase
 
-~~~
+```
 <br />
 
 Instalamos também o nodemon para rodarmos um servidor de desenvolvimento que se atualiza a qualquer mudança no código.
 
 ~~~ shell
 
+ $ npm install --save-dev nodemon
 
 ~~~
 <br />
@@ -180,6 +188,7 @@ Agora utilizaremos o eslint. Se você está lembrando do que mencionei acima ent
 
 ~~~ shell
 
+ $ npm install eslint --save-dev
 
 ~~~
 <br />
@@ -191,6 +200,7 @@ Para o eslint precisaremos de alguns plugins a mais, em consequência do fato de
 
 ~~~ shell
 
+ $ npm install @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
 
 ~~~
 <br />
@@ -200,6 +210,7 @@ Feito tudo acima, precisamos agora definirmos as configuraçõe do eslint e isso
 
 ~~~ shell
 
+ $ npx eslint --init
 
 ~~~
 <br />
@@ -207,33 +218,33 @@ Feito tudo acima, precisamos agora definirmos as configuraçõe do eslint e isso
 
 Você ficará surpreso, se nunca instalou o eslint, que ele trará um prompt de perguntas e opções para ser respondida.
 
-**imagem pergunta check eslint**
+![imagem pergunta check eslint](/imagem/imagem_eslint_1-min.png)
 
 Escolha a opção *Check syntax*, problems and enforce code style, se você quiser uma checagem mais completa do código, o qual recomendo para evitar o erros durante o desenvolvimento.
 
-**imagem o tipo de import**
+![imagem o tipo de import](/imagem/eslint_2-min.png)
 
 Escolha a opção com *import/export*, se estriver utilizando tais formas de carregar arquivos em código, senão escolher outras opções, Contudo como estamos usando sucrase é obvio que estaremos usando a primeira opção.
 
-**imagem do framework**
+![imagem do framework](/imagem/eslint_3-min.png)
 
 A próxima pergunta é uma resposta óbvia, como estamos usando NodeJs e nada mais, recomenda-se a opção *None of these*.
 
-**imagem typescript uso**
+![imagem typescript uso](/imagem/eslint_4-min.png)
 
-Digite *Y* para indicar que estamos usando typescript.
+Escolha *Yes* para indicar que estamos usando typescript.
 
-**imagem browser ou node**
+![imagem browser ou node](/imagem/eslint_5-min.png)
 
 Use o botão de espaço para indicar onde utilizaremos o código. Como estamos se focando somente do backend  recomendo marcar somente o *Node*.
 
-**imagem opções style guide**
+![imagem opções style guide](/imagem/eslint_6-min.png)
 
-**imagem opção Airbnb**
+![imagem opção Airbnb](/imagem/eslint_7-min.png)
 
 Agora vemos algo interessante, ele pergunta se queremos utilizar um popular style guide, eu recomendo que escolha sim e opte pelo do *Airbnb* ou se quiser o default. Se quiser você pode ver como esses guias funcionam. Style guide Airbnb [https://github.com/airbnb/javascript](https://github.com/airbnb/javascript). Esses guias possibilitarão que seu código tenha um padrão de escrita a ser seguido tornando-o legível e coerente.
 
-**imagem Javascript**
+![imagem Javascript](/imagem/eslint_8-min.png)
 
 Concluindo o questionário do prompt, definimos como o arquivo criado, e que poderá posteriormente ser modificado, será formatado. Eu prefiro o formato Javascript, mas você escolhe o que quiser. Então teremos nosso arquivo criado. No entanto ainda não terminamos, precisamos inserir algumas “coisinhas” no aquivo.
 
@@ -363,9 +374,11 @@ Uma situação que ocorreu comigo foi a não identificação de certos erros ao 
 <br />
 
 
-Agora para inserirmos o prettier no ambiente, você deve ter o prettier extensão instalado , no visual code isso se torna uma tarefa simples, e deve baixar o seguinte plugin:
+Agora para inserirmos o prettier no ambiente você deve ter a extensão prettier também instalada, no visual code isso se torna uma tarefa simples, e com ele devemos baixar os seguintes plugins:
 
 ~~~ shell
+
+ $ npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
 
 ~~~
 <br />
@@ -399,7 +412,7 @@ Enfim, é recomendado criar um arquivo **.prettierrc** para podermos definir as 
 
 ~~~ javascript
 
-module.exports = {
+ module.exports = {
     semi: true,
     trailingComma: "all",
     singleQuote: true,
